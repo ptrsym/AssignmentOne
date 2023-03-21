@@ -14,6 +14,9 @@
 		D03F7C1929C2DADB00F87789 /* AssignmentOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C1829C2DADB00F87789 /* AssignmentOneTests.swift */; };
 		D03F7C2329C2DADB00F87789 /* AssignmentOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C2229C2DADB00F87789 /* AssignmentOneUITests.swift */; };
 		D03F7C2529C2DADB00F87789 /* AssignmentOneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C2429C2DADB00F87789 /* AssignmentOneUITestsLaunchTests.swift */; };
+		D0960D7E29C9A912007E8D23 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D7D29C9A912007E8D23 /* DataModel.swift */; };
+		D0960D7F29C9A999007E8D23 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D7D29C9A912007E8D23 /* DataModel.swift */; };
+		D0960D8129C9AB81007E8D23 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D8029C9AB81007E8D23 /* MasterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		D03F7C1E29C2DADB00F87789 /* AssignmentOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03F7C2229C2DADB00F87789 /* AssignmentOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentOneUITests.swift; sourceTree = "<group>"; };
 		D03F7C2429C2DADB00F87789 /* AssignmentOneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentOneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D0960D7C29C9A50F007E8D23 /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		D0960D7D29C9A912007E8D23 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		D0960D8029C9AB81007E8D23 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +100,11 @@
 		D03F7C0629C2DAD900F87789 /* AssignmentOne */ = {
 			isa = PBXGroup;
 			children = (
+				D0960D7C29C9A50F007E8D23 /* ReadMe.md */,
 				D03F7C0729C2DAD900F87789 /* AssignmentOneApp.swift */,
 				D03F7C0929C2DAD900F87789 /* ContentView.swift */,
+				D0960D8029C9AB81007E8D23 /* MasterView.swift */,
+				D0960D7D29C9A912007E8D23 /* DataModel.swift */,
 				D03F7C0B29C2DADA00F87789 /* Assets.xcassets */,
 				D03F7C0D29C2DADA00F87789 /* Preview Content */,
 			);
@@ -259,6 +268,8 @@
 			files = (
 				D03F7C0A29C2DAD900F87789 /* ContentView.swift in Sources */,
 				D03F7C0829C2DAD900F87789 /* AssignmentOneApp.swift in Sources */,
+				D0960D8129C9AB81007E8D23 /* MasterView.swift in Sources */,
+				D0960D7E29C9A912007E8D23 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03F7C1929C2DADB00F87789 /* AssignmentOneTests.swift in Sources */,
+				D0960D7F29C9A999007E8D23 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

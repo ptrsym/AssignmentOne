@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D039162329CB75AF008A810F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D039162229CB75AF008A810F /* ListView.swift */; };
+		D039162729CB8819008A810F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D039162629CB8819008A810F /* ContentView.swift */; };
 		D03F7C0829C2DAD900F87789 /* AssignmentOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C0729C2DAD900F87789 /* AssignmentOneApp.swift */; };
-		D03F7C0A29C2DAD900F87789 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C0929C2DAD900F87789 /* ContentView.swift */; };
 		D03F7C0C29C2DADA00F87789 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03F7C0B29C2DADA00F87789 /* Assets.xcassets */; };
 		D03F7C0F29C2DADA00F87789 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03F7C0E29C2DADA00F87789 /* Preview Assets.xcassets */; };
 		D03F7C1929C2DADB00F87789 /* AssignmentOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C1829C2DADB00F87789 /* AssignmentOneTests.swift */; };
@@ -37,9 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D039162229CB75AF008A810F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		D039162629CB8819008A810F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D03F7C0429C2DAD900F87789 /* AssignmentOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssignmentOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03F7C0729C2DAD900F87789 /* AssignmentOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentOneApp.swift; sourceTree = "<group>"; };
-		D03F7C0929C2DAD900F87789 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D03F7C0B29C2DADA00F87789 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D03F7C0E29C2DADA00F87789 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D03F7C1429C2DADB00F87789 /* AssignmentOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D039162129CB70FD008A810F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D039162629CB8819008A810F /* ContentView.swift */,
+				D0960D8029C9AB81007E8D23 /* MasterView.swift */,
+				D039162229CB75AF008A810F /* ListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D03F7BFB29C2DAD900F87789 = {
 			isa = PBXGroup;
 			children = (
@@ -100,10 +112,9 @@
 		D03F7C0629C2DAD900F87789 /* AssignmentOne */ = {
 			isa = PBXGroup;
 			children = (
+				D039162129CB70FD008A810F /* Views */,
 				D0960D7C29C9A50F007E8D23 /* ReadMe.md */,
 				D03F7C0729C2DAD900F87789 /* AssignmentOneApp.swift */,
-				D0960D8029C9AB81007E8D23 /* MasterView.swift */,
-				D03F7C0929C2DAD900F87789 /* ContentView.swift */,
 				D0960D7D29C9A912007E8D23 /* DataModel.swift */,
 				D03F7C0B29C2DADA00F87789 /* Assets.xcassets */,
 				D03F7C0D29C2DADA00F87789 /* Preview Content */,
@@ -266,8 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D03F7C0A29C2DAD900F87789 /* ContentView.swift in Sources */,
 				D03F7C0829C2DAD900F87789 /* AssignmentOneApp.swift in Sources */,
+				D039162729CB8819008A810F /* ContentView.swift in Sources */,
+				D039162329CB75AF008A810F /* ListView.swift in Sources */,
 				D0960D8129C9AB81007E8D23 /* MasterView.swift in Sources */,
 				D0960D7E29C9A912007E8D23 /* DataModel.swift in Sources */,
 			);

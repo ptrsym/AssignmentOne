@@ -10,15 +10,13 @@ import SwiftUI
 struct MasterView: View {
     var body: some View {
         NavigationView{
-            List{
-                ForEach (daysofWeek, id:\.self) {day in
-                NavigationLink (destination: ContentView (
+            List(Array(tasksByDay.keys), id:\.self){day in
+                NavigationLink(destination: ListView(tasks: tasksByDay[day] ?? [])){
                     Text(day)
                 }
-            }
-            .navigationTitle("Days of the week")
+                }
+        }.navigationTitle("Day Planner")
         }
-    }
 }
 
 struct MasterView_Previews: PreviewProvider {

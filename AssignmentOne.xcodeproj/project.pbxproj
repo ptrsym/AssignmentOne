@@ -102,8 +102,8 @@
 			children = (
 				D0960D7C29C9A50F007E8D23 /* ReadMe.md */,
 				D03F7C0729C2DAD900F87789 /* AssignmentOneApp.swift */,
-				D03F7C0929C2DAD900F87789 /* ContentView.swift */,
 				D0960D8029C9AB81007E8D23 /* MasterView.swift */,
+				D03F7C0929C2DAD900F87789 /* ContentView.swift */,
 				D0960D7D29C9A912007E8D23 /* DataModel.swift */,
 				D03F7C0B29C2DADA00F87789 /* Assets.xcassets */,
 				D03F7C0D29C2DADA00F87789 /* Preview Content */,

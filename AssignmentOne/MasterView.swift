@@ -9,7 +9,15 @@ import SwiftUI
 
 struct MasterView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            List{
+                ForEach (daysofWeek, id:\.self) {day in
+                NavigationLink (destination: ContentView (
+                    Text(day)
+                }
+            }
+            .navigationTitle("Days of the week")
+        }
     }
 }
 

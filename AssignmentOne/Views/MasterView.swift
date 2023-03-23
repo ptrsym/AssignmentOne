@@ -10,14 +10,29 @@ import SwiftUI
 struct MasterView: View {
     var body: some View {
         NavigationView{
-            List(sortedDays, id:\.self){day in
-                NavigationLink(destination: DetailView(tasks: tasksByDay[day] ?? [])){
-                    Text(day)
+            VStack(alignment: .leading){
+                HStack{
+                    Spacer()
+                    Image(systemName: "cloud.sun.fill")
+                        .resizable()
+                        .foregroundColor(.yellow)
+                        .frame(width: 60, height: 45)
+                        .padding()
                 }
-            }
-        }.navigationTitle("Day Planner")
+                List(sortedDays, id:\.self){day in
+                    NavigationLink(destination: DetailView(tasks: tasksByDay[day] ?? [])){
+                        HStack{
+                            Text(day)
+                            Spacer()
+                            Image(systemName: "pencil")
+                                .foregroundColor(.blue)
+                        }
+                    }
+                }
+            } .navigationTitle("Daily Planner")
+            
+        }
     }
-    
 }
     
 

@@ -12,8 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             MasterView()
-            Image(systemName: "cloud.sun.fill")
-                .foregroundColor(.yellow)
+
         }
     }
 }

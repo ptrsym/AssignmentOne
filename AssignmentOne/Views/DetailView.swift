@@ -26,7 +26,7 @@ struct DetailView: View {
                         .onTapGesture{
                             tasks.firstIndex(where: {$0.id == task.id}).map {tasks[$0].isChecked.toggle()}
                         }
-                }.padding()
+                }
                 
             }
             

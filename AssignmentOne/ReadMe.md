@@ -19,7 +19,7 @@ Experimented with masterview and contentview to try and gain better understandin
 implemented master view
 implemented detail view
 
-while working on the detail view I spent a long time figuring out how to use the ontapgesture method which resulted in using the .firstindex(where:) method to identify the tapped task and the .map method to transform the correct task array and toggle the checkmark. they both seem like useful methods but correctly using the $0 in the arguments took awhile figure out
+while working on the detail view I spent a long time figuring out how to use the ontapgesture method which resulted in using the .firstindex(where:) method to identify the tapped task 
 
 Explored some formatting options for the task list.
 
@@ -36,6 +36,10 @@ Added some styling to the MasterView and DetailView
 Reviewed some data flow concepts to fix some errors in my code related to variabled being passed into different views and what to declare with the intention of using Observed objects instead of states
 
 changed some class definitions and made some new definitions to be able to track the [Task] array as an observable object
+
+fixed errors and had to add an objectwillchange to the ongesture tap closure as the state of the button was not being updated correctly for some reason due to how the task data may be being passed or accessed
+
+
 
 
 

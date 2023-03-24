@@ -29,6 +29,16 @@ class TaskStore: ObservableObject, Identifiable {
     init (tasks: [Task]){
         self.tasks = tasks
     }
+    
+
+//    func toggleTask(_ task: Task) {
+//        if let index = tasks.firstIndex(where: {$0.id == task.id}) {
+//            tasks[index].isChecked.toggle()
+//        }
+//    }
+//
+    
+    
 }
     
 var Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: true),

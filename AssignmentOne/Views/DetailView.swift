@@ -25,17 +25,18 @@ struct DetailView: View {
                     Image(systemName: task.isChecked ? "checkmark.square" : "square")
                         .foregroundColor(task.isChecked ? .green : .gray)
                         .onTapGesture{
-
+                            task.isChecked.toggle()
+                            tasks.objectWillChange.send()
                         }
-                            
-                            
-                        }
+                    
+                    
                 }
-                
             }
             
         }
         
     }
+    
+}
 
 

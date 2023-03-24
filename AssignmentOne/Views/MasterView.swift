@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MasterView: View {
+    
+    
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){

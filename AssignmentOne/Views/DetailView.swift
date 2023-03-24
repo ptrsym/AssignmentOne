@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     @State var tasks: [Task]
+    // @ObservedObject var tasks: Task
     
     var body: some View {
         List{
@@ -23,8 +24,11 @@ struct DetailView: View {
                     Spacer()
                     Image(systemName: task.isChecked ? "checkmark.square" : "square")
                         .foregroundColor(task.isChecked ? .green : .gray)
-                        .onTapGesture{
-                            tasks.firstIndex(where: {$0.id == task.id}).map {tasks[$0].isChecked.toggle()}
+                        .onTapGesture{task.isChecked.toggle()
+
+                        }
+                            
+                            
                         }
                 }
                 
@@ -33,5 +37,5 @@ struct DetailView: View {
         }
         
     }
-}
+
 

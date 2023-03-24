@@ -21,8 +21,25 @@ class Task: Identifiable, ObservableObject {
         self.task = task
         self.isChecked = isChecked
     }
-    
 }
+
+class TaskStore: ObservableObject {
+    @Published var tasks: [Task]
+    
+    init (tasks: [Task]){
+        self.tasks = tasks
+    }
+}
+
+
+
+//class WeeklyTasks: ObservableObject{
+//    @Published var tasksByDay: [String: [Task]]
+//
+//    init(tasksByDay: [String: [Task]]) {
+//        self.tasksByDay = tasksByDay
+//    }
+//}
 
 let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
@@ -73,4 +90,10 @@ var tasksByDay: [String: [Task]] = [
 let sortedDays = tasksByDay.keys.sorted {day1, day2 in
     daysofWeek.firstIndex(of: day1) ?? 0 < daysofWeek.firstIndex(of: day2) ?? 0}
 
-
+//func toggleChecked(for task: Task){
+//    for (day, tasks) in tasksByDay{
+//        if let index = tasks.firstIndex(where: { $0.id == task.id}) {
+//            tasksByDay[day]![index].isChecked.toggle()
+//        }
+//    }
+//}

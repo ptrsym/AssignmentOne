@@ -20,12 +20,9 @@ struct MasterView: View {
                         .padding()
                 }
                 List(sortedDays, id:\.self){day in
-                    NavigationLink(destination: DetailView(tasks: tasksByDay[day] ?? [])){
-                        HStack{
+                    HStack{
+                        NavigationLink(destination: DetailView(tasks: tasksByDay[day] ?? [])){
                             Text(day)
-                            Spacer()
-                            Image(systemName: "pencil")
-                                .foregroundColor(.blue)
                         }
                     }
                 }

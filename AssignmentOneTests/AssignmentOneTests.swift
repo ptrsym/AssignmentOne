@@ -21,7 +21,10 @@ final class AssignmentOneTests: XCTestCase {
     func testExample() throws {
         // put test functions in here to test them
         
-        // XCTAssertEqual(<#T##expression1: Equatable##Equatable#>, <#T##expression2: Equatable##Equatable#>)
+        
+        
+        
+     //   XCTAssertEqual()
     }
 
     func testPerformanceExample() throws {

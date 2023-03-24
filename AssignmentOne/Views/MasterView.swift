@@ -20,12 +20,10 @@ struct MasterView: View {
                         .padding()
                 }
                 List(sortedDays, id:\.self){day in
-                    HStack{
-                        NavigationLink(destination: DetailView(tasks: tasksByDay[day] ?? [])){
-                            Text(day)
-                        }
+                    NavigationLink(destination: DetailView(tasks: tasksByDay[day]!)){
+                        Text(day)
                     }
-                }
+            }
             } .navigationTitle("Daily Planner")
             
         }

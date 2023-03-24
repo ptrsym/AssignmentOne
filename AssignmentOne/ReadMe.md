@@ -31,6 +31,12 @@ Started researching observableobjects, environmentobjects and using the @publish
 
 Added some styling to the MasterView and DetailView
 
+24/03/23
+
+Reviewed some data flow concepts to fix some errors in my code related to variabled being passed into different views and what to declare with the intention of using Observed objects instead of states
+
+changed some class definitions and made some new definitions to be able to track the [Task] array as an observable object
+
 
 
 Video Link Milestone 1:

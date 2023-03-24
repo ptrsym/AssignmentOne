@@ -9,12 +9,12 @@ import SwiftUI
 
 struct DetailView: View {
     
-    @State var tasks: [Task]
-    // @ObservedObject var tasks: Task
+    @ObservedObject var tasks: TaskStore
+    // @State var tasks: TaskStore
     
     var body: some View {
         List{
-            ForEach(tasks) {task in
+            ForEach(tasks.tasks, id: \.id) {task in
                 HStack{
                     Text(task.time)
                         .frame(maxWidth: 80, alignment: .leading)
@@ -24,7 +24,7 @@ struct DetailView: View {
                     Spacer()
                     Image(systemName: task.isChecked ? "checkmark.square" : "square")
                         .foregroundColor(task.isChecked ? .green : .gray)
-                        .onTapGesture{task.isChecked.toggle()
+                        .onTapGesture{
 
                         }
                             

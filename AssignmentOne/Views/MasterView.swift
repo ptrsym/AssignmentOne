@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MasterView: View {
     
+    @State private var isEditMode = false
     
     var body: some View {
         NavigationView{
@@ -25,6 +26,7 @@ struct MasterView: View {
                     NavigationLink(destination: DetailView(tasks: day.taskStore)){
                         Text(day.name)
                     }
+//                    .onDelete(perform: delete)
             }
             } .navigationTitle("Daily Planner")
             
@@ -32,7 +34,6 @@ struct MasterView: View {
     }
 }
     
-
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
         MasterView()

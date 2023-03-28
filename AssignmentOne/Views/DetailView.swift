@@ -10,7 +10,6 @@ import SwiftUI
 struct DetailView: View {
     
     @ObservedObject var tasks: TaskStore
-    // @State var tasks: TaskStore
     
     var body: some View {
         List{

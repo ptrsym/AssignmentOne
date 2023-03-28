@@ -52,3 +52,4 @@ Created day and daylist classes necessary for adding edit functionality to the c
 Started changing views to use the new DayList class instead of a dictionary
 built a sort function in the daylist class to ensure when making changes to the checklist the days are in chronological order
 added an append day function for the daylist
+updated masterview code to use the DayList class instead of the previous dictionary

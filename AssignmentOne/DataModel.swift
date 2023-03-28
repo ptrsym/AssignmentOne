@@ -27,8 +27,15 @@ class TaskStore: ObservableObject, Identifiable {
     @Published var tasks: [Task]
     
     init (tasks: [Task]){
-        self.tasks = tasks
+        self.tasks = tasks.sorted(by: {$0.time < $1.time})
     }
+    
+    func appendTask(_ task: Task){
+        tasks.append(task)
+        tasks.sort(by: {$0.time < $1.time})
+    }
+    
+    
     
 }
 
@@ -71,27 +78,9 @@ class DayList: ObservableObject, Identifiable {
 
 }
 
-
-
-// temp code
-//let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-
-
-//var tasksByDay: [String: TaskStore] = [
-//
-//        "Monday": TaskStore(tasks: Monday),
-//
-//        "Tuesday": TaskStore(tasks: Tuesday),
-//
-//        "Wednesday": TaskStore(tasks: Wednesday),
-//
-//        "Thursday": TaskStore(tasks: Thursday)
-//
-//    ]
-
-//let sortedDays = tasksByDay.keys.sorted {day1, day2 in
-//    daysofWeek.firstIndex(of: day1) ?? 0 < daysofWeek.firstIndex(of: day2) ?? 0}
-
+//func delete(at offsets: IndexSet){
+//    days.remove(atOffsets: offsets)
+//}
 
 
 // initialisation data
@@ -133,12 +122,13 @@ let Thursday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: fals
                         
                     ]
 
-var tasksByDay = DayList(days: [
-        Day(name: "Monday", taskStore: TaskStore(tasks: Monday)),
-        Day(name: "Tuesday", taskStore: TaskStore(tasks: Tuesday)),
-        Day(name: "Wednesday", taskStore: TaskStore(tasks: Wednesday)),
-        Day(name: "Thursday", taskStore: TaskStore(tasks: Thursday))
-        ])
+var tasksByDay = DayList(days: [])
+
+//        Day(name: "Monday", taskStore: TaskStore(tasks: Monday)),
+//        Day(name: "Tuesday", taskStore: TaskStore(tasks: Tuesday)),
+//        Day(name: "Wednesday", taskStore: TaskStore(tasks: Wednesday)),
+//        Day(name: "Thursday", taskStore: TaskStore(tasks: Thursday))
+//        ])
 
 
 

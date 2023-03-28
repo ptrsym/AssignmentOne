@@ -30,6 +30,19 @@ class TaskStore: ObservableObject, Identifiable {
         self.tasks = tasks
     }
     
+}
+
+class Day: ObservableObject, Identifiable {
+    let id = UUID()
+    @Published var name: String
+    @Published var taskStore: TaskStore
+        
+    init(name: String,  taskStore: TaskStore){
+        self.name = name
+        self.taskStore = taskStore
+        }
+}
+    
 
 //    func toggleTask(_ task: Task) {
 //        if let index = tasks.firstIndex(where: {$0.id == task.id}) {
@@ -37,13 +50,6 @@ class TaskStore: ObservableObject, Identifiable {
 //        }
 //    }
 //
-    
-    
-}
-
-
-
-
 
 
 

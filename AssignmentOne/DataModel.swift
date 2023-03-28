@@ -47,7 +47,7 @@ class DayList: ObservableObject {
     @Published var days: [Day]
     
     init(days: [Day]){
-        self.days = days
+        self.days = sortDays(days)
     }
     
     let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -59,6 +59,11 @@ class DayList: ObservableObject {
             else {return false}
             return index1 < index2
         }
+    }
+    
+    func append(day: Day) {
+        days.append(day)
+        days = sortDays(days)
     }
     
     

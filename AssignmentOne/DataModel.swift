@@ -12,8 +12,8 @@ import Combine
     
 class Task: Identifiable, ObservableObject {
      let id = UUID()
-     var time: String
-     var task: String
+     @Published var time: String
+     @Published var task: String
      @Published var isChecked: Bool
     
     init(time: String, task: String, isChecked: Bool = false) {
@@ -40,7 +40,14 @@ class TaskStore: ObservableObject, Identifiable {
     
     
 }
-    
+
+
+
+
+
+
+
+
 var Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: true),
                       Task(time: "9:00 AM", task: "Morning study", isChecked: true),
                       Task(time: "12:00 PM", task: "Attend lecture", isChecked: false),

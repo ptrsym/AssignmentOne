@@ -5,6 +5,7 @@
 21/3/23
 
 Familiarised with source control settings.
+
 Made text display for list view.
 
 22/3/23
@@ -31,6 +32,7 @@ Started researching observableobjects, environmentobjects and using the @publish
 
 Added some styling to the MasterView and DetailView
 
+
 24/03/23
 
 Reviewed some data flow concepts to fix some errors in my code related to variabled being passed into different views and what to declare with the intention of using Observed objects instead of states
@@ -40,10 +42,5 @@ changed some class definitions and made some new definitions to be able to track
 fixed errors and had to add an objectwillchange to the ongesture tap closure as the state of the button was not being updated correctly for some reason due to how the task data may be being passed or accessed
 
 
-
-
-
-Video Link Milestone 1:
-
-
+Video Link Milestone 1: https://youtu.be/tCg1-Y0L65M
 

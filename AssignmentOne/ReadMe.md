@@ -50,3 +50,5 @@ Video Link Milestone 1: https://youtu.be/tCg1-Y0L65M
 
 Created day and daylist classes necessary for adding edit functionality to the checklist
 Started changing views to use the new DayList class instead of a dictionary
+built a sort function in the daylist class to ensure when making changes to the checklist the days are in chronological order
+added an append day function for the daylist

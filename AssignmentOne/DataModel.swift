@@ -43,17 +43,19 @@ class Day: ObservableObject, Identifiable {
         }
 }
     
-class DayList: ObservableObject {
+class DayList: ObservableObject, Identifiable {
+    let id = UUID()
     @Published var days: [Day]
     
     init(days: [Day]){
-        self.days = sortDays(days)
+        self.days = days
+        sortDays()
     }
     
     let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
-    func sortDays (_ days: [Day]) -> [Day] {
-        days.sorted{
+    func sortDays(){
+        days = days.sorted{
             guard let index1 = daysofWeek.firstIndex(of: $0.name),
                   let index2 = daysofWeek.firstIndex(of: $1.name)
             else {return false}
@@ -61,37 +63,34 @@ class DayList: ObservableObject {
         }
     }
     
-    func append(day: Day) {
+    func appendDay(day: Day) {
         days.append(day)
-        days = sortDays(days)
+        sortDays()
     }
     
-    
-    
-    
-    
+
 }
 
 
 
 // temp code
-let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+//let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 
-var tasksByDay: [String: TaskStore] = [
-    
-        "Monday": TaskStore(tasks: Monday),
-        
-        "Tuesday": TaskStore(tasks: Tuesday),
-        
-        "Wednesday": TaskStore(tasks: Wednesday),
-        
-        "Thursday": TaskStore(tasks: Thursday)
-        
-    ]
+//var tasksByDay: [String: TaskStore] = [
+//
+//        "Monday": TaskStore(tasks: Monday),
+//
+//        "Tuesday": TaskStore(tasks: Tuesday),
+//
+//        "Wednesday": TaskStore(tasks: Wednesday),
+//
+//        "Thursday": TaskStore(tasks: Thursday)
+//
+//    ]
 
-let sortedDays = tasksByDay.keys.sorted {day1, day2 in
-    daysofWeek.firstIndex(of: day1) ?? 0 < daysofWeek.firstIndex(of: day2) ?? 0}
+//let sortedDays = tasksByDay.keys.sorted {day1, day2 in
+//    daysofWeek.firstIndex(of: day1) ?? 0 < daysofWeek.firstIndex(of: day2) ?? 0}
 
 
 

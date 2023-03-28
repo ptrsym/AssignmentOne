@@ -21,9 +21,9 @@ struct MasterView: View {
                         .frame(width: 60, height: 45)
                         .padding()
                 }
-                List(sortedDays, id:\.self){day in
-                    NavigationLink(destination: DetailView(tasks: tasksByDay[day]!)){
-                        Text(day)
+                List(tasksByDay.days){day in
+                    NavigationLink(destination: DetailView(tasks: day.taskStore)){
+                        Text(day.name)
                     }
             }
             } .navigationTitle("Daily Planner")

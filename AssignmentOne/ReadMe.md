@@ -44,3 +44,9 @@ fixed errors and had to add an objectwillchange to the ongesture tap closure as 
 
 Video Link Milestone 1: https://youtu.be/tCg1-Y0L65M
 
+
+
+28/03/23
+
+Created day and daylist classes necessary for adding edit functionality to the checklist
+Started changing views to use the new DayList class instead of a dictionary

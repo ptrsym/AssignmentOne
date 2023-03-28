@@ -43,54 +43,33 @@ class Day: ObservableObject, Identifiable {
         }
 }
     
+class DayList: ObservableObject {
+    @Published var days: [Day]
+    
+    init(days: [Day]){
+        self.days = days
+    }
+    
+    let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    
+    func sortDays (_ days: [Day]) -> [Day] {
+        days.sorted{
+            guard let index1 = daysofWeek.firstIndex(of: $0.name),
+                  let index2 = daysofWeek.firstIndex(of: $1.name)
+            else {return false}
+            return index1 < index2
+        }
+    }
+    
+    
+    
+    
+    
+}
 
-//    func toggleTask(_ task: Task) {
-//        if let index = tasks.firstIndex(where: {$0.id == task.id}) {
-//            tasks[index].isChecked.toggle()
-//        }
-//    }
-//
 
 
-
-
-var Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: true),
-                      Task(time: "9:00 AM", task: "Morning study", isChecked: true),
-                      Task(time: "12:00 PM", task: "Attend lecture", isChecked: false),
-                      Task(time: "2:00 PM", task: "Lunch", isChecked: false),
-                      Task(time: "2:30 PM", task: "Afternoon study", isChecked: false),
-                      Task(time: "4:00 PM", task: "Workout", isChecked: false),
-                      Task(time: "7:00 PM", task: "Dinner", isChecked: false),
-                      Task(time: "8:30 PM", task: "Free time", isChecked: false),]
-
-
-var Tuesday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
-                       Task(time: "9:00 AM", task: "Morning work", isChecked: false),
-                       Task(time: "12:00 PM", task: "Lunch", isChecked: false),
-                       Task(time: "12:45 PM", task: "Afternoon work", isChecked: false),
-                       Task(time: "4:00 PM", task: "Workout", isChecked: false),
-                       Task(time: "7:00 PM", task: "Dinner", isChecked: false),
-                       Task(time: "8:30 PM", task: "Free time", isChecked: false),
-]
-
-var Wednesday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
-                         Task(time: "9:00 AM", task: "Morning work", isChecked: false),
-                         Task(time: "12:00 PM", task: "Lunch", isChecked: false),
-                         Task(time: "12:45 PM", task: "Afternoon work", isChecked: false),
-                         Task(time: "4:00 PM", task: "Workout", isChecked: false),
-                         Task(time: "7:00 PM", task: "Dinner", isChecked: false),
-                         Task(time: "8:30 PM", task: "Free time", isChecked: false),
-                     ]
-
-var Thursday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
-                        Task(time: "9:00 AM", task: "Morning work", isChecked: false),
-                        Task(time: "12:00 PM", task: "Lecture", isChecked: false),
-                        Task(time: "2:00 PM", task: "Lunch", isChecked: false),
-                        Task(time: "4:00 PM", task: "Lab", isChecked: false),
-                        Task(time: "7:00 PM", task: "Workout", isChecked: false),
-                        Task(time: "9:30 PM", task: "Dinner", isChecked: false),
-                    ]
-
+// temp code
 let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 
@@ -108,4 +87,54 @@ var tasksByDay: [String: TaskStore] = [
 
 let sortedDays = tasksByDay.keys.sorted {day1, day2 in
     daysofWeek.firstIndex(of: day1) ?? 0 < daysofWeek.firstIndex(of: day2) ?? 0}
+
+
+
+// initialisation data
+let Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: true),
+                      Task(time: "9:00 AM", task: "Morning study", isChecked: true),
+                      Task(time: "12:00 PM", task: "Attend lecture", isChecked: false),
+                      Task(time: "2:00 PM", task: "Lunch", isChecked: false),
+                      Task(time: "2:30 PM", task: "Afternoon study", isChecked: false),
+                      Task(time: "4:00 PM", task: "Workout", isChecked: false),
+                      Task(time: "7:00 PM", task: "Dinner", isChecked: false),
+                      Task(time: "8:30 PM", task: "Free time", isChecked: false),]
+
+
+let Tuesday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
+                       Task(time: "9:00 AM", task: "Morning work", isChecked: false),
+                       Task(time: "12:00 PM", task: "Lunch", isChecked: false),
+                       Task(time: "12:45 PM", task: "Afternoon work", isChecked: false),
+                       Task(time: "4:00 PM", task: "Workout", isChecked: false),
+                       Task(time: "7:00 PM", task: "Dinner", isChecked: false),
+                       Task(time: "8:30 PM", task: "Free time", isChecked: false),
+]
+
+let Wednesday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
+                         Task(time: "9:00 AM", task: "Morning work", isChecked: false),
+                         Task(time: "12:00 PM", task: "Lunch", isChecked: false),
+                         Task(time: "12:45 PM", task: "Afternoon work", isChecked: false),
+                         Task(time: "4:00 PM", task: "Workout", isChecked: false),
+                         Task(time: "7:00 PM", task: "Dinner", isChecked: false),
+                         Task(time: "8:30 PM", task: "Free time", isChecked: false),
+                     ]
+
+let Thursday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
+                        Task(time: "9:00 AM", task: "Morning work", isChecked: false),
+                        Task(time: "12:00 PM", task: "Lecture", isChecked: false),
+                        Task(time: "2:00 PM", task: "Lunch", isChecked: false),
+                        Task(time: "4:00 PM", task: "Lab", isChecked: false),
+                        Task(time: "7:00 PM", task: "Workout", isChecked: false),
+                        Task(time: "9:30 PM", task: "Dinner", isChecked: false),
+                        
+                    ]
+
+var tasksByDay = DayList(days: [
+        Day(name: "Monday", taskStore: TaskStore(tasks: Monday)),
+        Day(name: "Tuesday", taskStore: TaskStore(tasks: Tuesday)),
+        Day(name: "Wednesday", taskStore: TaskStore(tasks: Wednesday)),
+        Day(name: "Thursday", taskStore: TaskStore(tasks: Thursday))
+        ])
+
+
 

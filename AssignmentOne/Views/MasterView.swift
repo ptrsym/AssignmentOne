@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct MasterView: View {
-    
+       
     @State private var isEditMode = false
-    
+
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
@@ -24,9 +24,10 @@ struct MasterView: View {
                 }
                 List(tasksByDay.days){day in
                     NavigationLink(destination: DetailView(tasks: day.taskStore)){
-                        Text(day.name)
+                        //Text(day.name)
+                        ListRowView(day: day.name)
                     }
-//                    .onDelete(perform: delete)
+
             }
             } .navigationTitle("Daily Planner")
             

@@ -27,13 +27,42 @@ class TaskStore: ObservableObject, Identifiable {
     @Published var tasks: [Task]
     
     init (tasks: [Task]){
-        self.tasks = tasks.sorted(by: {$0.time < $1.time})
+        self.tasks = tasks
+        sortTasksByTime()
     }
     
     func appendTask(_ task: Task){
         tasks.append(task)
-        tasks.sort(by: {$0.time < $1.time})
+        sortTasksByTime()
     }
+    
+    
+    func convertTime(_ time: String) -> String? {
+        let format = DateFormatter()
+        format.dateFormat = "hh:mm a"
+        guard let date = format.date(from: time) else {
+            return nil
+        }
+        format.dateFormat = "HH:mm"
+        return format.string(from: date)
+    }
+    
+    func sortTasksByTime() {
+        tasks.sort(by: { task1, task2 in
+            let time1 = task1.time
+            let time2 = task2.time
+            guard let convertedTime1 = convertTime(time1), let convertedTime2 = convertTime(time2) else {
+                return false
+            }
+            return convertedTime1 < convertedTime2
+        })
+    }
+
+
+
+
+    
+    
     
     
     
@@ -61,14 +90,16 @@ class DayList: ObservableObject, Identifiable {
     
     let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
-    func sortDays(){
-        days = days.sorted{
-            guard let index1 = daysofWeek.firstIndex(of: $0.name),
-                  let index2 = daysofWeek.firstIndex(of: $1.name)
+    
+    func sortDays() {
+        days = days.sorted { (day1, day2) -> Bool in
+            guard let index1 = daysofWeek.firstIndex(where: { $0.localizedCaseInsensitiveCompare(day1.name.lowercased()) == .orderedSame }),
+                  let index2 = daysofWeek.firstIndex(where: { $0.localizedCaseInsensitiveCompare(day2.name.lowercased()) == .orderedSame })
             else {return false}
             return index1 < index2
         }
     }
+
     
     func appendDay(day: Day) {
         days.append(day)
@@ -77,11 +108,6 @@ class DayList: ObservableObject, Identifiable {
     
 
 }
-
-//func delete(at offsets: IndexSet){
-//    days.remove(atOffsets: offsets)
-//}
-
 
 // initialisation data
 let Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: true),

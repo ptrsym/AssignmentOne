@@ -18,6 +18,7 @@
 		D0960D7E29C9A912007E8D23 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D7D29C9A912007E8D23 /* DataModel.swift */; };
 		D0960D7F29C9A999007E8D23 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D7D29C9A912007E8D23 /* DataModel.swift */; };
 		D0960D8129C9AB81007E8D23 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D8029C9AB81007E8D23 /* MasterView.swift */; };
+		D0A3F42A29D5A2D4005FE135 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3F42929D5A2D4005FE135 /* ListRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		D0960D7C29C9A50F007E8D23 /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		D0960D7D29C9A912007E8D23 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		D0960D8029C9AB81007E8D23 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
+		D0A3F42929D5A2D4005FE135 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +84,11 @@
 		D039162129CB70FD008A810F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D03F7C0729C2DAD900F87789 /* AssignmentOneApp.swift */,
 				D039162629CB8819008A810F /* ContentView.swift */,
 				D0960D8029C9AB81007E8D23 /* MasterView.swift */,
 				D039162829CB8A61008A810F /* DetailView.swift */,
+				D0A3F42929D5A2D4005FE135 /* ListRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,7 +118,6 @@
 			children = (
 				D039162129CB70FD008A810F /* Views */,
 				D0960D7C29C9A50F007E8D23 /* ReadMe.md */,
-				D03F7C0729C2DAD900F87789 /* AssignmentOneApp.swift */,
 				D0960D7D29C9A912007E8D23 /* DataModel.swift */,
 				D03F7C0B29C2DADA00F87789 /* Assets.xcassets */,
 				D03F7C0D29C2DADA00F87789 /* Preview Content */,
@@ -282,6 +285,7 @@
 				D039162729CB8819008A810F /* ContentView.swift in Sources */,
 				D0960D8129C9AB81007E8D23 /* MasterView.swift in Sources */,
 				D0960D7E29C9A912007E8D23 /* DataModel.swift in Sources */,
+				D0A3F42A29D5A2D4005FE135 /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

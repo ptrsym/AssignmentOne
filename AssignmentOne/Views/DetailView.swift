@@ -13,7 +13,7 @@ struct DetailView: View {
     
     var body: some View {
         List{
-            ForEach(tasks.tasks, id: \.id) {task in
+            ForEach(tasks.tasks) {task in  // may require ID when data is used
                 HStack{
                     Text(task.time)
                         .frame(maxWidth: 80, alignment: .leading)

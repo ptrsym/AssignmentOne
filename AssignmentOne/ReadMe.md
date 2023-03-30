@@ -53,3 +53,12 @@ Started changing views to use the new DayList class instead of a dictionary
 built a sort function in the daylist class to ensure when making changes to the checklist the days are in chronological order
 added an append day function for the daylist
 updated masterview code to use the DayList class instead of the previous dictionary
+
+29/03/23
+
+updated daylist function sortdays() to ignore case if the user's entry isnt an exact match of the daysoftheweek array
+
+30/03/23
+
+created listrowview for styling masterview layout
+rebuilt timesort function for taskstore class to understand chronological ordering of am/pm time using a DateFormatter(). code test succeeded 

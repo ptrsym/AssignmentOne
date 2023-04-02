@@ -67,3 +67,4 @@ rebuilt timesort function for taskstore class to understand chronological orderi
 
 lots of research on delete options, swipe options etc.
 implemented delete option in masterview using .onDelete - had to add an observedobject wrapper to the masterview to allow changes to persist between states
+implemented add day function to the plus button - learned about onCommit, had to use .onDisappear to reset the textfield as it wasnt doing it inside the onCommit closure

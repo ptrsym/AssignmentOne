@@ -11,6 +11,9 @@ struct MasterView: View {
     
     @State private var isEditMode = false
     @ObservedObject var tasksByDay: DayList
+    @State private var isAddingDay = false
+    @State private var newDayName = ""
+
     
     var body: some View {
         NavigationView{
@@ -31,17 +34,27 @@ struct MasterView: View {
                     .onDelete {indexSet in
                         tasksByDay.days.remove(atOffsets: indexSet)
                     }
+                    if isAddingDay {
+                        TextField("Enter day", text: $newDayName, onCommit: {
+                            tasksByDay.appendDay(name: newDayName)
+                            isAddingDay = false
+                        }).onDisappear {
+                            newDayName = ""
+                        }
+                    }
                     }
                 }.navigationTitle("Day Planner")
                     .navigationBarItems(leading:
                                             EditButton(),
                                         trailing:
                                             Button(action: {
+                        isAddingDay = true
                         
                     }) {
                         Image(systemName: "plus")
                     }.disabled(isEditMode)
                     )
+            
             }
         }
     }

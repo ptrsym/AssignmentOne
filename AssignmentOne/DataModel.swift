@@ -90,8 +90,11 @@ class DayList: ObservableObject, Identifiable {
         }
     }
     
-    func appendDay(day: Day) {
-        days.append(day)
+    func appendDay(name: String) {
+        if !name.isEmpty {
+            let newDay = Day(name: name, taskStore: TaskStore(tasks: []))
+            self.days.append(newDay)
+        }
         sortDays()
     }
       

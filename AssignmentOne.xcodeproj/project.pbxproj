@@ -15,6 +15,7 @@
 		D03F7C1929C2DADB00F87789 /* AssignmentOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C1829C2DADB00F87789 /* AssignmentOneTests.swift */; };
 		D03F7C2329C2DADB00F87789 /* AssignmentOneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C2229C2DADB00F87789 /* AssignmentOneUITests.swift */; };
 		D03F7C2529C2DADB00F87789 /* AssignmentOneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F7C2429C2DADB00F87789 /* AssignmentOneUITestsLaunchTests.swift */; };
+		D085C32729D9FD9900CA494E /* DayNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D085C32629D9FD9900CA494E /* DayNameView.swift */; };
 		D0960D7E29C9A912007E8D23 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D7D29C9A912007E8D23 /* DataModel.swift */; };
 		D0960D7F29C9A999007E8D23 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D7D29C9A912007E8D23 /* DataModel.swift */; };
 		D0960D8129C9AB81007E8D23 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0960D8029C9AB81007E8D23 /* MasterView.swift */; };
@@ -50,6 +51,7 @@
 		D03F7C1E29C2DADB00F87789 /* AssignmentOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03F7C2229C2DADB00F87789 /* AssignmentOneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentOneUITests.swift; sourceTree = "<group>"; };
 		D03F7C2429C2DADB00F87789 /* AssignmentOneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentOneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D085C32629D9FD9900CA494E /* DayNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNameView.swift; sourceTree = "<group>"; };
 		D0960D7C29C9A50F007E8D23 /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		D0960D7D29C9A912007E8D23 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		D0960D8029C9AB81007E8D23 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				D0960D8029C9AB81007E8D23 /* MasterView.swift */,
 				D039162829CB8A61008A810F /* DetailView.swift */,
 				D0A3F42929D5A2D4005FE135 /* ListRowView.swift */,
+				D085C32629D9FD9900CA494E /* DayNameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				D03F7C0829C2DAD900F87789 /* AssignmentOneApp.swift in Sources */,
 				D039162929CB8A61008A810F /* DetailView.swift in Sources */,
 				D039162729CB8819008A810F /* ContentView.swift in Sources */,
+				D085C32729D9FD9900CA494E /* DayNameView.swift in Sources */,
 				D0960D8129C9AB81007E8D23 /* MasterView.swift in Sources */,
 				D0960D7E29C9A912007E8D23 /* DataModel.swift in Sources */,
 				D0A3F42A29D5A2D4005FE135 /* ListRowView.swift in Sources */,

@@ -18,16 +18,17 @@ struct MasterView: View {
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
-                HStack{
-                    Image(systemName: "cloud.sun.fill")
-                        .resizable()
-                        .foregroundColor(.yellow)
-                        .frame(width: 60, height: 45)
-                        .padding()
-                }
+//                HStack{
+//                    Image(systemName: "cloud.sun.fill")
+//                        .resizable()
+//                        .foregroundColor(.yellow)
+//                        .frame(width: 60, height: 45)
+//                        .padding()
+//                }
                 List{
                     ForEach(tasksByDay.days){ day in
-                            NavigationLink(destination: DetailView(tasks: day.taskStore)){
+                        let indexOfDay = tasksByDay.days.firstIndex(where: {$0.id == day.id})!
+                        NavigationLink(destination: DetailView(tasks: day.taskStore, associatedDay: $tasksByDay.days[indexOfDay].name)){
                                 ListRowView(day: day.name, isEditMode: $isEditMode)
                             }
                         }
@@ -54,9 +55,12 @@ struct MasterView: View {
                         Image(systemName: "plus")
                     }.disabled(isEditMode)
                     )
+                    .onAppear {
+                        tasksByDay.sortDays()
+                    }
             
             }
-        }
+    }
     }
 
 struct MasterView_Previews: PreviewProvider {

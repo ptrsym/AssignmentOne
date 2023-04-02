@@ -68,3 +68,15 @@ rebuilt timesort function for taskstore class to understand chronological orderi
 lots of research on delete options, swipe options etc.
 implemented delete option in masterview using .onDelete - had to add an observedobject wrapper to the masterview to allow changes to persist between states
 implemented add day function to the plus button - learned about onCommit, had to use .onDisappear to reset the textfield as it wasnt doing it inside the onCommit closure
+
+03/04/23
+
+implemented reset/undo button on navbar in displayview utilising a state array to save the previous values using a for loop and map method
+disabled the reset/undo button during edit mode to avoid array mismatch when restoring values
+added and .onAppear closure to the masterview in order to ensure any edits to the day name in the detailview correctly sort the list in chronological order
+implemented the title edit capability during edit mode of the detail view
+made DayNameView to format the textfield and text more easily for the if/else conditionals of edit mode
+added a viewmodifier to the DayNameView so edits to the dayname are more seamless by keeping the same format settings
+added some styling to indicate the dayname is editable
+encountered problems trying to align a small icon to the textfield for a better edit association: padding was causing the textfield to misalign and be hard to click for renaming
+

@@ -98,7 +98,6 @@ class DayList: ObservableObject, Identifiable {
         sortDays()
     }
       
-
 }
 
 // test data

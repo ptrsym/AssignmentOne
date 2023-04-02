@@ -61,4 +61,4 @@ updated daylist function sortdays() to ignore case if the user's entry isnt an e
 30/03/23
 
 created listrowview for styling masterview layout
-rebuilt timesort function for taskstore class to understand chronological ordering of am/pm time using a DateFormatter(). code test succeeded 
+rebuilt timesort function for taskstore class to understand chronological ordering of am/pm time using a DateFormatter().

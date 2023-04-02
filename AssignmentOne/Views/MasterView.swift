@@ -29,7 +29,19 @@ struct MasterView: View {
                     }
 
             }
-            } .navigationTitle("Daily Planner")
+            } .navigationTitle("Day Planner")
+                .navigationBarItems(leading:
+                                        Button(action: {
+                    
+                }){
+                    Text("Edit")
+                },trailing:
+                                        Button(action: {
+                    
+                }) {
+                    Image(systemName: "plus")
+                }
+                )
             
         }
     }

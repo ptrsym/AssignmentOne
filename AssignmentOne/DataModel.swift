@@ -35,8 +35,7 @@ class TaskStore: ObservableObject, Identifiable {
         tasks.append(task)
         sortTasksByTime()
     }
-    
-    
+        
     func convertTime(_ time: String) -> String? {
         let format = DateFormatter()
         format.dateFormat = "hh:mm a"
@@ -57,15 +56,6 @@ class TaskStore: ObservableObject, Identifiable {
             return convertedTime1 < convertedTime2
         })
     }
-
-
-
-
-    
-    
-    
-    
-    
 }
 
 class Day: ObservableObject, Identifiable {
@@ -109,7 +99,7 @@ class DayList: ObservableObject, Identifiable {
 
 }
 
-// initialisation data
+// test data
 let Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: true),
                       Task(time: "9:00 AM", task: "Morning study", isChecked: true),
                       Task(time: "12:00 PM", task: "Attend lecture", isChecked: false),

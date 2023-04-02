@@ -32,7 +32,21 @@ struct DetailView: View {
                 }
             }
             
+        }.navigationBarItems(trailing: HStack {
+            Button(action: {
+                
+            }) {
+                Text("Reset")
+            }
+            Button(action: {
+                
+            }) {
+                Text("Edit")
+            }
+            
         }
+                                
+        )
         
     }
     

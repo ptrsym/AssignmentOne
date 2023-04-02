@@ -94,12 +94,7 @@ class DayList: ObservableObject, Identifiable {
         days.append(day)
         sortDays()
     }
-    
-    func removeDay(withId id: UUID) {
-        days.removeAll(where: { $0.id == id })
-        objectWillChange.send()
-    }
-    
+      
 
 }
 

@@ -28,11 +28,12 @@ struct DetailView: View {
                             tasks.objectWillChange.send()
                         }
                     
-                    
+            
                 }
             }
             
-        }.navigationBarItems(trailing: HStack {
+        }
+        .navigationBarItems(trailing: HStack {
             Button(action: {
                 
             }) {

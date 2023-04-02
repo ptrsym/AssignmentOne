@@ -10,7 +10,7 @@ import SwiftUI
 struct MasterView: View {
     
     @State private var isEditMode = false
-    @State private var selectedDay: Day? = nil
+    @ObservedObject var tasksByDay: DayList
     
     var body: some View {
         NavigationView{
@@ -48,6 +48,6 @@ struct MasterView: View {
 
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
-        MasterView()
+        MasterView(tasksByDay: tasksByDay)
     }
 }

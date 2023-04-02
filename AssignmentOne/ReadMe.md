@@ -66,4 +66,4 @@ rebuilt timesort function for taskstore class to understand chronological orderi
 02/04/23
 
 lots of research on delete options, swipe options etc.
-implemented a .swipeActions closure to delete days from masterview but not updating the view perfectly
+implemented delete option in masterview using .onDelete - had to add an observedobject wrapper to the masterview to allow changes to persist between states

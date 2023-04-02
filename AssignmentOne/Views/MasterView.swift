@@ -22,28 +22,19 @@ struct MasterView: View {
                         .frame(width: 60, height: 45)
                         .padding()
                 }
-                List {
-                    ForEach(tasksByDay.days) { day in
-                        NavigationLink(destination: DetailView(tasks: day.taskStore)) {
-                            ListRowView(day: day.name)
-                        }
-                        .swipeActions {
-                            Button(action: {
-                                tasksByDay.removeDay(withId: day.id)
-                            }) {
-                                Label("Delete", systemImage: "trash")
+                List{
+                    ForEach(tasksByDay.days){ day in
+                            NavigationLink(destination: DetailView(tasks: day.taskStore)){
+                                ListRowView(day: day.name, isEditMode: $isEditMode)
                             }
-                            .tint(.red)
                         }
+                    .onDelete {indexSet in
+                        tasksByDay.days.remove(atOffsets: indexSet)
+                    }
                     }
                 }.navigationTitle("Day Planner")
                     .navigationBarItems(leading:
-                                            Button(action: {
-                        isEditMode.toggle()
-                        
-                    }){
-                        Text(isEditMode ? "Done" : "Edit")
-                    },
+                                            EditButton(),
                                         trailing:
                                             Button(action: {
                         
@@ -54,7 +45,7 @@ struct MasterView: View {
             }
         }
     }
-}
+
 struct MasterView_Previews: PreviewProvider {
     static var previews: some View {
         MasterView()

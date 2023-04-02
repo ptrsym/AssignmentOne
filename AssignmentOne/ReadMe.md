@@ -62,3 +62,8 @@ updated daylist function sortdays() to ignore case if the user's entry isnt an e
 
 created listrowview for styling masterview layout
 rebuilt timesort function for taskstore class to understand chronological ordering of am/pm time using a DateFormatter().
+
+02/04/23
+
+lots of research on delete options, swipe options etc.
+implemented a .swipeActions closure to delete days from masterview but not updating the view perfectly

@@ -79,4 +79,5 @@ made DayNameView to format the textfield and text more easily for the if/else co
 added a viewmodifier to the DayNameView so edits to the dayname are more seamless by keeping the same format settings
 added some styling to indicate the dayname is editable
 encountered problems trying to align a small icon to the textfield for a better edit association: padding was causing the textfield to misalign and be hard to click for renaming
+fixed EditButton() integration in DetailView to correctly track and update the state of the view by attaching .environment(\.editMode, $editMode) to child views
 

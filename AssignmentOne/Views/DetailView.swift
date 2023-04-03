@@ -11,21 +11,22 @@ struct DetailView: View {
     
     @ObservedObject var tasks: TaskStore
     @Binding var associatedDay: String
-    @State private var isEditMode = false
     @State private var hasReset = false
     @State private var savedCheckState: [Bool] = []
+    @State var editMode : EditMode = .inactive
+
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                DayNameView(dayName: $associatedDay, isEditMode: isEditMode)
-                    Spacer()
-                Image (systemName: isEditMode ? "pencil.and.outline" : "cloud.sun.fill")
-                        .resizable()
-                        .frame(width: 60, height: 45)
-                        .foregroundColor(isEditMode ? .green : .yellow)
-                        .padding()
-                }.padding(.top, -40)
+                DayNameView(dayName: $associatedDay, isEditMode: editMode.isEditing)
+                Spacer()
+                Image (systemName: editMode.isEditing ? "pencil.and.outline" : "cloud.sun.fill")
+                    .resizable()
+                    .frame(width: 60, height: 45)
+                    .foregroundColor(editMode.isEditing ? .green : .yellow)
+                    .padding()
+            }.padding(.top, -40)
             List{
                 ForEach(tasks.tasks) {task in
                     HStack{
@@ -42,46 +43,48 @@ struct DetailView: View {
                                 tasks.objectWillChange.send()
                             }
                     }
+                    
+                }
+                .onDelete {indexSet in
+                    tasks.tasks.remove(atOffsets: indexSet)
                 }
                 
-            }
+            }.environment(\.editMode, $editMode)
         }
         .navigationBarItems(trailing: HStack {
-            if hasReset {
-                Button(action: {
-                    hasReset.toggle()
-                    for index in tasks.tasks.indices{
-                        tasks.tasks[index].isChecked = savedCheckState[index]
+            if editMode.isEditing{
+                if hasReset {
+                    Button(action: {
+                        hasReset.toggle()
+                        for index in tasks.tasks.indices{
+                            tasks.tasks[index].isChecked = savedCheckState[index]
+                        }
+                        tasks.objectWillChange.send()
+                    })
+                    {
+                        Text("Undo Reset")
+                            .foregroundColor(.red)
                     }
-                    tasks.objectWillChange.send()
-                })
-                {
-                    Text("Undo")
-                }.disabled(isEditMode)
-            }  else {
-                Button(action: {
-                    hasReset.toggle()
-                    savedCheckState = tasks.tasks.map {$0.isChecked}
-                    for index in tasks.tasks.indices{
-                        tasks.tasks[index].isChecked = false
+                }  else {
+                    Button(action: {
+                        hasReset.toggle()
+                        savedCheckState = tasks.tasks.map {$0.isChecked}
+                        for index in tasks.tasks.indices{
+                            tasks.tasks[index].isChecked = false
+                        }
+                        tasks.objectWillChange.send()
+                    }) {
+                        Text("Reset")
+                            .foregroundColor(.red)
                     }
-                    tasks.objectWillChange.send()
-                }) {
-                    Text("Reset")
-                }.disabled(isEditMode)
+                }
             }
-            Button(action: {
-                isEditMode.toggle()
-                })
-            {
-                Text(isEditMode ? "Done" : "Edit")
-            }
-            })
-        
+            EditButton()
+                .environment(\.editMode, $editMode)
+        })
     }
+    
 }
-                                
-        
 
 
 

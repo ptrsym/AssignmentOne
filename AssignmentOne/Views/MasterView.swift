@@ -18,13 +18,6 @@ struct MasterView: View {
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
-//                HStack{
-//                    Image(systemName: "cloud.sun.fill")
-//                        .resizable()
-//                        .foregroundColor(.yellow)
-//                        .frame(width: 60, height: 45)
-//                        .padding()
-//                }
                 List{
                     ForEach(tasksByDay.days){ day in
                         let indexOfDay = tasksByDay.days.firstIndex(where: {$0.id == day.id})!

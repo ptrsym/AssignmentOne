@@ -15,7 +15,7 @@ struct DetailView: View {
     @State private var savedCheckState: [Bool] = []
     @State var editMode : EditMode = .inactive
     @State private var isAddingTask = false
-
+    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -43,63 +43,60 @@ struct DetailView: View {
                                 task.isChecked.toggle()
                                 tasks.objectWillChange.send()
                             }
+                            .environment(\.editMode, $editMode)
                     }
-                }
-                .onDelete {indexSet in
+                }.onDelete {indexSet in
                     tasks.tasks.remove(atOffsets: indexSet)
                 }
-                
-            }.environment(\.editMode, $editMode)
-            if editMode.isEditing {
-                HStack {
-                    Button( action:{
-                        isAddingTask = true
-                    }){
-                        Image(systemName: "plus")
-                            .foregroundColor(.green)
-                    }
-                    Text("Add task")
-                        .foregroundColor(.blue)
-                }.sheet(isPresented: $isAddingTask) {
-                    AddTaskView(tasks: tasks)
-                } 
-            }
-            
-        }
-        .navigationBarItems(trailing: HStack {
-            if editMode.isEditing{
-                if hasReset {
-                    Button(action: {
-                        hasReset.toggle()
-                        for index in tasks.tasks.indices{
-                            tasks.tasks[index].isChecked = savedCheckState[index]
+                if editMode.isEditing {
+                    HStack {
+                        Button( action:{
+                            isAddingTask = true
+                        }){
+                            Image(systemName: "plus")
+                                .foregroundColor(.green)
                         }
-                        tasks.objectWillChange.send()
-                    })
-                    {
-                        Text("Undo Reset")
-                            .foregroundColor(.red)
-                    }
-                }  else {
-                    Button(action: {
-                        hasReset.toggle()
-                        savedCheckState = tasks.tasks.map {$0.isChecked}
-                        for index in tasks.tasks.indices{
-                            tasks.tasks[index].isChecked = false
-                        }
-                        tasks.objectWillChange.send()
-                    }) {
-                        Text("Reset")
-                            .foregroundColor(.red)
+                        Text("Add task")
+                            .foregroundColor(.blue)
+                    }.sheet(isPresented: $isAddingTask) {
+                        AddTaskView(tasks: tasks)
+                        
                     }
                 }
+
             }
-            EditButton()
-                .environment(\.editMode, $editMode)
-        })
+            .navigationBarItems(trailing: HStack {
+                if editMode.isEditing{
+                    if hasReset {
+                        Button(action: {
+                            hasReset.toggle()
+                            for index in tasks.tasks.indices{
+                                tasks.tasks[index].isChecked = savedCheckState[index]
+                            }
+                            tasks.objectWillChange.send()
+                        })
+                        {
+                            Text("Undo Reset")
+                                .foregroundColor(.red)
+                        }
+                    }  else {
+                        Button(action: {
+                            hasReset.toggle()
+                            savedCheckState = tasks.tasks.map {$0.isChecked}
+                            for index in tasks.tasks.indices{
+                                tasks.tasks[index].isChecked = false
+                            }
+                            tasks.objectWillChange.send()
+                        }) {
+                            Text("Reset")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+                EditButton()
+                    .environment(\.editMode, $editMode)
+            })
+        }
+        
     }
-    
 }
-
-
-

@@ -80,4 +80,6 @@ added a viewmodifier to the DayNameView so edits to the dayname are more seamles
 added some styling to indicate the dayname is editable
 encountered problems trying to align a small icon to the textfield for a better edit association: padding was causing the textfield to misalign and be hard to click for renaming
 fixed EditButton() integration in DetailView to correctly track and update the state of the view by attaching .environment(\.editMode, $editMode) to child views
+implemented an AddTaskView to facilitate the adding of tasks to the detailview's current day
+used an @Environment wrapper with presentation mode and sheets to prompt the user for adding a new task. took this approach due to the task object requiring certain properties/syntax
 

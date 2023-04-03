@@ -17,7 +17,12 @@ struct AddTaskView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter time: e.g. 7:30 am/pm", text: $time)
+            Image (systemName: "book")
+                .resizable()
+                .foregroundColor(.green)
+                .frame(width: 70, height: 60)
+                .offset(x: 0, y: -30)
+            TextField("Enter time: e.g. 7:30 AM/PM", text: $time)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             TextField("Enter task: e.g. Go shopping", text: $taskName)
@@ -28,18 +33,37 @@ struct AddTaskView: View {
                     let newTask = Task(time: time, task: taskName)
                     tasks.appendTask(newTask)
                     presentationMode.wrappedValue.dismiss()
-                }
+                }.foregroundColor(.green)
+                    .frame(width: 80, height: 35)
+                    .background(
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(.green)
+                        }
+                    )
+                .padding()
+                Spacer()
                 Button("Cancel"){
                     presentationMode.wrappedValue.dismiss()
-                }
-            }
+                }.foregroundColor(.red)
+                    .frame(width: 80, height: 35)
+                    .background(
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(.red)
+                        }
+                            )
+                    .padding()
+            }.padding()
         }
         .navigationBarTitle("Add Task")
     }
 }
 
-//struct AddTaskView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddTaskView(tasks: tasks)
-//    }
-//}
+struct AddTaskView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddTaskView(tasks: TaskStore(tasks: []))
+    }
+}

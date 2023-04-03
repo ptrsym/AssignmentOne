@@ -14,6 +14,7 @@ struct DetailView: View {
     @State private var hasReset = false
     @State private var savedCheckState: [Bool] = []
     @State var editMode : EditMode = .inactive
+    @State private var isAddingTask = false
 
     
     var body: some View {
@@ -43,13 +44,27 @@ struct DetailView: View {
                                 tasks.objectWillChange.send()
                             }
                     }
-                    
                 }
                 .onDelete {indexSet in
                     tasks.tasks.remove(atOffsets: indexSet)
                 }
                 
             }.environment(\.editMode, $editMode)
+            if editMode.isEditing {
+                HStack {
+                    Button( action:{
+                        isAddingTask = true
+                    }){
+                        Image(systemName: "plus")
+                            .foregroundColor(.green)
+                    }
+                    Text("Add task")
+                        .foregroundColor(.blue)
+                }.sheet(isPresented: $isAddingTask) {
+                    AddTaskView(tasks: tasks)
+                } 
+            }
+            
         }
         .navigationBarItems(trailing: HStack {
             if editMode.isEditing{

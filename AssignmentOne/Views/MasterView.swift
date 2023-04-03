@@ -36,8 +36,9 @@ struct MasterView: View {
                             newDayName = ""
                         }
                     }
-                    }
-                }.navigationTitle("Day Planner")
+                }
+            }
+            .navigationTitle("Day Planner")
                     .navigationBarItems(leading:
                                             EditButton(),
                                         trailing:

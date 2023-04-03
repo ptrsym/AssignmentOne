@@ -139,13 +139,13 @@ let Thursday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: fals
                         
                     ]
 
-var tasksByDay = DayList(days: [
+var tasksByDay = DayList(days: [])
 
-        Day(name: "Monday", taskStore: TaskStore(tasks: Monday)),
-        Day(name: "Tuesday", taskStore: TaskStore(tasks: Tuesday)),
-        Day(name: "Wednesday", taskStore: TaskStore(tasks: Wednesday)),
-        Day(name: "Thursday", taskStore: TaskStore(tasks: Thursday))
-        ])
+//        Day(name: "Monday", taskStore: TaskStore(tasks: Monday)),
+//        Day(name: "Tuesday", taskStore: TaskStore(tasks: Tuesday)),
+//        Day(name: "Wednesday", taskStore: TaskStore(tasks: Wednesday)),
+//        Day(name: "Thursday", taskStore: TaskStore(tasks: Thursday))
+//        ])
 
 
 

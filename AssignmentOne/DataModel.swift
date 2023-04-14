@@ -35,7 +35,19 @@ class TaskStore: ObservableObject, Identifiable {
         tasks.append(task)
         sortTasksByTime()
     }
-        
+       
+    /// This function is used as part of the TaskStore class to provide sorting functionality to lists that use this class in order
+    /// to display them in chronological order.
+    /// - Parameters:
+    ///     time (string) - accepts a time string in AM/PM format e.g. "7:00 AM"
+    /// - Returns:
+    ///     time (string) - returns a time string converted to 24H format e.g. "7:00 AM" -> "07:00"
+    /// Example:
+    /// ''' swift
+    /// time = "7:00 AM"
+    /// let newTime = convertTime(time)
+    /// '''
+    
     func convertTime(_ time: String) -> String? {
         let format = DateFormatter()
         format.dateFormat = "hh:mm a"

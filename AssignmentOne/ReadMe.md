@@ -83,3 +83,9 @@ fixed EditButton() integration in DetailView to correctly track and update the s
 implemented an AddTaskView to facilitate the adding of tasks to the detailview's current day
 used an @Environment wrapper with presentation mode and sheets to prompt the user for adding a new task. took this approach due to the task object requiring certain properties/syntax
 
+Video Link Milestone 2: https://youtu.be/5O26V9iSSqo
+
+14/04/23
+
+Started reviewing code and adding comments/building documentation
+

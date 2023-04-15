@@ -31,6 +31,22 @@ class TaskStore: ObservableObject, Identifiable {
         sortTasksByTime()
     }
     
+    /// This function is called when a new task needs to be added to a TaskStore instance. It will add the task to the TaskStore and then sort it into the array in chronological order using its time property.
+    /// - Parameters:
+    /// task (task) - accepts a task object to add to the TaskStore
+    /// - Returns:
+    /// nil
+    /// Example:
+    /// '''
+    /// let newTask = Task(time: "8:00 AM", task: "Breakfast")
+    /// var tasks = TaskStore()
+    /// tasks.appendTask(newTask)
+    /// print(tasks) // Output: [["8:00 AM", "Breakfast", false]]
+    /// '''
+    ///
+    ///
+    
+    
     func appendTask(_ task: Task){
         tasks.append(task)
         sortTasksByTime()
@@ -43,9 +59,10 @@ class TaskStore: ObservableObject, Identifiable {
     /// - Returns:
     ///     time (string) - returns a time string converted to 24H format e.g. "7:00 AM" -> "07:00"
     /// Example:
-    /// ''' swift
+    /// '''
     /// time = "7:00 AM"
     /// let newTime = convertTime(time)
+    /// print(newTime) // Output: "07:00"
     /// '''
     
     func convertTime(_ time: String) -> String? {
@@ -57,6 +74,9 @@ class TaskStore: ObservableObject, Identifiable {
         format.dateFormat = "HH:mm"
         return format.string(from: date)
     }
+    
+    ///
+    
     
     func sortTasksByTime() {
         tasks.sort(by: { task1, task2 in

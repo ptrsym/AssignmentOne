@@ -85,7 +85,14 @@ used an @Environment wrapper with presentation mode and sheets to prompt the use
 
 Video Link Milestone 2: https://youtu.be/5O26V9iSSqo
 
+
+
+
 14/04/23
 
 Started reviewing code and adding comments/building documentation
+
+15/04/23
+
+Added more documentation and comments to code.
 

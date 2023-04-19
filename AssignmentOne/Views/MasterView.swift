@@ -18,22 +18,33 @@ struct MasterView: View {
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
-                List{
-                    ForEach(tasksByDay.days){ day in
-                        let indexOfDay = tasksByDay.days.firstIndex(where: {$0.id == day.id})!
-                        NavigationLink(destination: DetailView(tasks: day.taskStore, associatedDay: $tasksByDay.days[indexOfDay].name)){
+                if tasksByDay.days.isEmpty, !isAddingDay, !isEditMode {
+                    Text("No entries... tap + to get started!")
+                        .padding(.top, 25)
+                        .bold()
+                        .font(.system(size: 22))
+                        .foregroundColor(.blue)
+                    
+                    Spacer()
+                }
+                else{
+                    List{
+                        ForEach(tasksByDay.days){ day in
+                            let indexOfDay = tasksByDay.days.firstIndex(where: {$0.id == day.id})!
+                            NavigationLink(destination: DetailView(tasks: day.taskStore, associatedDay: $tasksByDay.days[indexOfDay].name)){
                                 ListRowView(day: day.name, isEditMode: $isEditMode)
                             }
                         }
-                    .onDelete {indexSet in
-                        tasksByDay.days.remove(atOffsets: indexSet)
-                    }
-                    if isAddingDay {
-                        TextField("Enter day", text: $newDayName, onCommit: {
-                            tasksByDay.appendDay(name: newDayName)
-                            isAddingDay = false
-                        }).onDisappear {
-                            newDayName = ""
+                        .onDelete {indexSet in
+                            tasksByDay.days.remove(atOffsets: indexSet)
+                        }
+                        if isAddingDay {
+                            TextField("Enter day", text: $newDayName, onCommit: {
+                                tasksByDay.appendDay(name: newDayName)
+                                isAddingDay = false
+                            }).onDisappear {
+                                newDayName = ""
+                            }
                         }
                     }
                 }

@@ -91,10 +91,12 @@ class TaskStore: ObservableObject, Identifiable {
     /// - Returns:
     ///     none
     /// Example:
+    /// '''
     ///    func appendTask(_ task: Task){
     ///    tasks.append(task)
     ///    sortTasksByTime()
     ///}
+    ///'''
     ///
     
     // A function that sorts the tasks based on their chronological time
@@ -133,7 +135,7 @@ class DayList: ObservableObject, Identifiable {
     let id = UUID()
     @Published var days: [Day]
     
-    init(days: [Day]){
+    init(days: [Day] = [Day()]){
         self.days = days
         sortDays()
     }
@@ -148,14 +150,15 @@ class DayList: ObservableObject, Identifiable {
     /// none
     ///
     /// Example:
-    ///
+    ///'''
     /// func appendDay(name: String) {
     ///    if !name.isEmpty {
-    ///        let newDay = Day(name: name, taskStore: TaskStore(tasks: []))
+    ///        let newDay = Day(name: name, taskStore: TaskStore())
     ///        self.days.append(newDay)
     ///    }
     ///    sortDays()
     ///}
+    ///'''
         
     
     // A function that sorts the 'days' array based on the order of the days of the week
@@ -191,7 +194,7 @@ class DayList: ObservableObject, Identifiable {
         if !name.isEmpty {
             
             // Create a new 'Day' object with the given name and an empty 'TaskStore'
-            let newDay = Day(name: name, taskStore: TaskStore(tasks: []))
+            let newDay = Day(name: name, taskStore: TaskStore())
             
             // Append the new 'Day' object to the 'days' array
             self.days.append(newDay)
@@ -200,6 +203,11 @@ class DayList: ObservableObject, Identifiable {
         sortDays()
     }
 }
+
+
+var tasksByDay = DayList(days: [])
+
+
 
 // test data
 let Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),
@@ -216,14 +224,6 @@ let Thursday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),
                         Task(time: "12:00 PM", task: "Lecture"),
                         Task(),
                     ]
-
-var tasksByDay = DayList(days: [])
-
-//        Day(name: "Monday", taskStore: TaskStore(tasks: Monday)),
-//        Day(name: "Wednesday", taskStore: TaskStore(tasks: Wednesday)),
-//        Day(name: "Thursday", taskStore: TaskStore(tasks: Thursday))
-//        ])
-
 
 // var testTaskStore = TaskStore(tasks: [Task(time: "10:00 AM", task: "Study")])
 

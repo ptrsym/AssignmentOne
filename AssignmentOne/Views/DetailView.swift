@@ -21,12 +21,6 @@ struct DetailView: View {
         VStack(alignment: .leading) {
             HStack {
                 DayNameView(dayName: $associatedDay, isEditMode: editMode.isEditing)
-                Spacer()
-                Image (systemName: editMode.isEditing ? "pencil.and.outline" : "cloud.sun.fill")
-                    .resizable()
-                    .frame(width: 60, height: 45)
-                    .foregroundColor(editMode.isEditing ? .green : .yellow)
-                    .padding()
             }.padding(.top, -40)
             List{
                 ForEach(tasks.tasks) {task in

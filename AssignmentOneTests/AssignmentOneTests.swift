@@ -21,21 +21,54 @@ final class AssignmentOneTests: XCTestCase {
     func testExample() throws {
         // put test functions in here to test them
         
-        func convertTime(_ time: String) -> String? {
-            let format = DateFormatter()
-            format.dateFormat = "hh:mm a"
-            guard let date = format.date(from: time) else {
-                return nil
-            }
-            format.dateFormat = "HH:mm"
-            return format.string(from: date)
+        
+        func testTaskInitialization() {
+            let task = Task()
+            let task2 = Task(time: "10:00 AM", task: "Lecture", isChecked: true)
+            
+            //default state
+            XCTAssertEqual(task.time, "")
+            XCTAssertEqual(task.task, "")
+            XCTAssertFalse(task.isChecked)
+            
+            //configured
+            XCTAssertEqual(task2.time, "10:00 AM")
+            XCTAssertEqual(task2.task, "Lecture")
+            XCTAssertEqual(task2.isChecked, true)
         }
-
-        let time = "1:30 PM"
-        let result = convertTime(time)
-        XCTAssertEqual(result, "13:30")
+        
+        
+        
+        
+        func testConvert(){
+            //included because not in scope
+            func convertTime(_ time: String) -> String? {
+                let format = DateFormatter()
+                format.dateFormat = "hh:mm a"
+                guard let date = format.date(from: time) else {
+                    return nil
+                }
+                format.dateFormat = "HH:mm"
+                return format.string(from: date)
+            }
+            
+            let time = "1:30 PM"
+            let result = convertTime(time)
+            XCTAssertEqual(result, "13:30")
+        }
+        
+        
+        
+        
+        
+        
     }
-
+    
+    
+    
+    
+    
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

@@ -10,19 +10,34 @@ import SwiftUI
 struct DayNameView: View {
     @Binding var dayName: String
     let isEditMode: Bool
-    
+
     var body: some View {
-        VStack (alignment: .leading){
+        VStack(alignment: .leading) {
             HStack {
                 if isEditMode {
-                    TextField(dayName, text: $dayName)
-                        .modifier(DayNameModifier())
+                        TextField(dayName, text: $dayName)
+                            .modifier(DayNameModifier())
+                            .background(Color.white)
+                            .border(Color.blue, width: 1)
+                            .padding()
+                        Image(systemName: "pencil")
+                            .resizable()
+                            .foregroundColor(.blue)
+                            .padding(.leading, -5)
+                            .offset(x: -12, y: 18)
+                            .frame(width: 25, height: 25)
+                    
                 } else {
                     Text(dayName)
                         .modifier(DayNameModifier())
+                    Spacer()
+                    Image(systemName: "cloud.sun.fill")
+                        .resizable()
+                        .frame(width: 60, height: 45)
+                        .foregroundColor(.yellow)
+                        .padding()
                 }
             }
-            
         }
     }
 }
@@ -36,7 +51,6 @@ struct DayNameModifier: ViewModifier {
             .padding(.horizontal, 15)
     }
 }
-
 
 struct DayNameView_Previews: PreviewProvider {
     

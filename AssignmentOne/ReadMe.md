@@ -96,3 +96,16 @@ Started reviewing code and adding comments/building documentation
 
 Added more documentation and comments to code.
 
+19/04/23
+
+Added test cases for data types and multiple functions. Should have been included while building the initial datatypes but was unsure on how to exactly test different aspects of the intialisation, functions etc. Many functions included as part of a class aren't showing in scope for the test file and needed to be manually included'.
+
+Remote repository is not being found and updated correctly due to VM crashing during development and needing to reinstall entire VM and reclone project, some commits went missing. Added a new remote to try and fix but still not detecting. Local commits are working.
+
+20/04/23
+
+Cleaned code in detailview by including more styling in the DayNameView with the intent of making it more apparently the textfield can be edited.
+
+Attempted to dynamically change the size of the textfield border based on the contents using a geometryreader but was unable to get the desired functionality
+
+

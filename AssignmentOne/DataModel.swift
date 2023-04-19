@@ -16,7 +16,7 @@ class Task: Identifiable, ObservableObject {
      @Published var task: String
      @Published var isChecked: Bool
     
-    init(time: String, task: String, isChecked: Bool = false) {
+    init(time: String = "", task: String = "", isChecked: Bool = false) {
         self.time = time
         self.task = task
         self.isChecked = isChecked
@@ -26,7 +26,7 @@ class Task: Identifiable, ObservableObject {
 class TaskStore: ObservableObject, Identifiable {
     @Published var tasks: [Task]
     
-    init (tasks: [Task]){
+    init (tasks: [Task] = [Task()]){
         self.tasks = tasks
         sortTasksByTime()
     }
@@ -66,7 +66,7 @@ class TaskStore: ObservableObject, Identifiable {
     /// '''
     
     // A function that converts a time string in "AM/PM" format to "24H" format
-    func convertTime(_ time: String) -> String? {
+    public func convertTime(_ time: String) -> String? {
         
         // Create a DateFormatter object with the "AM/PM" format
         let format = DateFormatter()
@@ -85,7 +85,7 @@ class TaskStore: ObservableObject, Identifiable {
         return format.string(from: date)
     }
     
-    /// This function is used to provide sort functionality in a TaskStore array sorting the elemtns into chronological order based on when they are scheduled to occur.
+    /// This function is used to provide sort functionality in a TaskStore array sorting the elements into chronological order based on when they are scheduled to occur.
     /// - Parameters:
     ///     none
     /// - Returns:
@@ -97,11 +97,10 @@ class TaskStore: ObservableObject, Identifiable {
     ///}
     ///
     
-    
     // A function that sorts the tasks based on their chronological time
     func sortTasksByTime() {
         
-        // Sort the 'tasks' array by comparing two tasks based on their scheduled time
+        // Sort the tasks array by comparing two tasks based on their scheduled time
         tasks.sort(by: { task1, task2 in
             // Extract the scheduled times of the two tasks
             let time1 = task1.time
@@ -124,7 +123,7 @@ class Day: ObservableObject, Identifiable {
     @Published var name: String
     @Published var taskStore: TaskStore
         
-    init(name: String,  taskStore: TaskStore){
+    init(name: String = "",  taskStore: TaskStore = TaskStore()){
         self.name = name
         self.taskStore = taskStore
         }
@@ -197,60 +196,34 @@ class DayList: ObservableObject, Identifiable {
             // Append the new 'Day' object to the 'days' array
             self.days.append(newDay)
         }
-        
         // Sort the 'days' array based on the order of the days of the week
         sortDays()
     }
 }
 
 // test data
-let Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: true),
-                      Task(time: "9:00 AM", task: "Morning study", isChecked: true),
-                      Task(time: "12:00 PM", task: "Attend lecture", isChecked: false),
-                      Task(time: "2:00 PM", task: "Lunch", isChecked: false),
-                      Task(time: "2:30 PM", task: "Afternoon study", isChecked: false),
-                      Task(time: "4:00 PM", task: "Workout", isChecked: false),
-                      Task(time: "7:00 PM", task: "Dinner", isChecked: false),
-                      Task(time: "8:30 PM", task: "Free time", isChecked: false),]
-
-
-let Tuesday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
-                       Task(time: "9:00 AM", task: "Morning work", isChecked: false),
-                       Task(time: "12:00 PM", task: "Lunch", isChecked: false),
-                       Task(time: "12:45 PM", task: "Afternoon work", isChecked: false),
-                       Task(time: "4:00 PM", task: "Workout", isChecked: false),
-                       Task(time: "7:00 PM", task: "Dinner", isChecked: false),
-                       Task(time: "8:30 PM", task: "Free time", isChecked: false),
+let Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),
+                      Task(time: "2:00 PM", task: "Lunch"),
+                      Task(),
 ]
 
-let Wednesday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
-                         Task(time: "9:00 AM", task: "Morning work", isChecked: false),
-                         Task(time: "12:00 PM", task: "Lunch", isChecked: false),
-                         Task(time: "12:45 PM", task: "Afternoon work", isChecked: false),
-                         Task(time: "4:00 PM", task: "Workout", isChecked: false),
-                         Task(time: "7:00 PM", task: "Dinner", isChecked: false),
-                         Task(time: "8:30 PM", task: "Free time", isChecked: false),
+let Wednesday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),
+                         Task(time: "12:00 PM", task: "Lunch"),
+                         Task(time: "7:00 PM", task: "Dinner"),
                      ]
 
-let Thursday: [Task] = [Task(time: "7:30 AM", task: "Breakfast", isChecked: false),
-                        Task(time: "9:00 AM", task: "Morning work", isChecked: false),
-                        Task(time: "12:00 PM", task: "Lecture", isChecked: false),
-                        Task(time: "2:00 PM", task: "Lunch", isChecked: false),
-                        Task(time: "4:00 PM", task: "Lab", isChecked: false),
-                        Task(time: "7:00 PM", task: "Workout", isChecked: false),
-                        Task(time: "9:30 PM", task: "Dinner", isChecked: false),
-                        
+let Thursday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),
+                        Task(time: "12:00 PM", task: "Lecture"),
+                        Task(),
                     ]
 
 var tasksByDay = DayList(days: [])
 
 //        Day(name: "Monday", taskStore: TaskStore(tasks: Monday)),
-//        Day(name: "Tuesday", taskStore: TaskStore(tasks: Tuesday)),
 //        Day(name: "Wednesday", taskStore: TaskStore(tasks: Wednesday)),
 //        Day(name: "Thursday", taskStore: TaskStore(tasks: Thursday))
 //        ])
 
 
+// var testTaskStore = TaskStore(tasks: [Task(time: "10:00 AM", task: "Study")])
 
-
-// var test = TaskStore(tasks: [Task(time: "10:00 AM", task: "Study")])

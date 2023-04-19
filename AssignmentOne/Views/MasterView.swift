@@ -39,7 +39,7 @@ struct MasterView: View {
                         }
                         if isAddingDay {
                             TextField("Enter day", text: $newDayName, onCommit: {
-                                tasksByDay.appendDay(name: newDayName)
+                                tasksByDay.appendDay( newDayName)
                                 isAddingDay = false
                             }).onDisappear {
                                 newDayName = ""

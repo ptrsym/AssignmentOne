@@ -108,4 +108,10 @@ Cleaned code in detailview by including more styling in the DayNameView with the
 
 Attempted to dynamically change the size of the textfield border based on the contents using a geometryreader but was unable to get the desired functionality
 
+Added app icon to assets, used single image under iOS as one size should fit all
+
+May need to disable auto sorting functions to demonstrate list reordering.
+
+
+
 

@@ -37,6 +37,22 @@ final class AssignmentOneTests: XCTestCase {
             XCTAssertEqual(task2.isChecked, true)
         }
         
+        func testTaskStoreInitialization(){
+            let store1 = TaskStore()
+            let store2 = TaskStore(tasks: Monday)
+            print("\(store1)")
+            print("\(store2)")
+        }
+        
+
+        func testDayInitialization() {
+            let testDay = Day()
+            let testDay2 = Day(name: "Monday", taskStore: TaskStore(tasks: Monday))
+            
+            print("\(testDay)")
+            print("\(testDay2)")
+        }
+        
         
         func testConvert(){
             //included because not in scope
@@ -55,7 +71,25 @@ final class AssignmentOneTests: XCTestCase {
             XCTAssertEqual(result, "13:30")
         }
         
-        
+        func testAppendDay(){
+            
+            let testDayList = DayList()
+            let testDayName = "Monday"
+            let testDayList2 = DayList(days: [Day(name: "Monday", taskStore: TaskStore())])
+            
+            func appendDay(_ name: String) {
+                if !name.isEmpty {
+                    let newDay = Day(name: name, taskStore: TaskStore())
+                    testDayList.days.append(newDay)
+                }
+            }
+            
+            debugPrint("\(testDayList)")
+            testDayList.appendDay(testDayName)
+            debugPrint("\(testDayList)")
+
+            
+        }
         
         
         

@@ -26,7 +26,7 @@ class Task: Identifiable, ObservableObject {
 class TaskStore: ObservableObject, Identifiable {
     @Published var tasks: [Task]
     
-    init (tasks: [Task] = [Task()]){
+    init (tasks: [Task] = []){
         self.tasks = tasks
         sortTasksByTime()
     }
@@ -179,7 +179,17 @@ class DayList: ObservableObject, Identifiable {
         }
     }
     
-    ///
+    ///This function is called when a new Day entry is to be added to the DayList object. Through the application the user is prompted to provide a day name and the associated tasks contained in the TaskStore array are initialised empty.
+    ///- Parameters:
+    ///name (string) - accepts a string determined by the user presumed to be a day of the week
+    ///- Returns:
+    ///none
+    ///Example:
+    ///'''
+    ///var exampleDayList = DayList()
+    ///let exampleEntry = "Monday"
+    ///exampleDayList.appendDay(Monday)
+    ///print(exampleDayList) // Output: [Day: "Monday", TaskStore: []]
     
     
     
@@ -188,7 +198,7 @@ class DayList: ObservableObject, Identifiable {
     
     
     // A function that creates a new Day object using a given name and an empty 'TaskStore' property, and appends it to the 'days' array
-    func appendDay(name: String) {
+    func appendDay(_ name: String) {
         
         // Check if the given name is not empty
         if !name.isEmpty {
@@ -211,8 +221,6 @@ var tasksByDay = DayList(days: [])
 
 // test data
 let Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),
-                      Task(time: "2:00 PM", task: "Lunch"),
-                      Task(),
 ]
 
 let Wednesday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),

@@ -24,7 +24,6 @@ struct MasterView: View {
                         .bold()
                         .font(.system(size: 22))
                         .foregroundColor(.blue)
-                    
                     Spacer()
                 }
                 else{

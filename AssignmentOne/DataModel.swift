@@ -49,7 +49,7 @@ public class TaskStore: ObservableObject, Identifiable {
     
     func appendTask(_ task: Task){
         tasks.append(task)
-        sortTasksByTime()
+        //sortTasksByTime()
     }
        
     /// This function is used as part of the TaskStore class to append a new task object to the array and then sort the resulting array into
@@ -203,7 +203,7 @@ public class DayList: ObservableObject, Identifiable {
             self.days.append(newDay)
         }
         // Sort the 'days' array based on the order of the days of the week
-        sortDays()
+        //sortDays()
     }
 }
 

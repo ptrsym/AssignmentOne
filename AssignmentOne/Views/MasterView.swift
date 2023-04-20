@@ -19,10 +19,10 @@ struct MasterView: View {
         NavigationView{
             VStack(alignment: .leading){
                 if tasksByDay.days.isEmpty, !isAddingDay, !isEditMode {
-                    Text("No entries... tap + to get started!")
+                    Text("No entries yet, tap '+' to get started!")
                         .padding(.top, 25)
                         .bold()
-                        .font(.system(size: 22))
+                        .font(.system(size: 21))
                         .foregroundColor(.blue)
                     Spacer()
                 }
@@ -45,7 +45,7 @@ struct MasterView: View {
                                 newDayName = ""
                             }
                         }
-                    }
+                    }.padding(.top, 20)
                 }
             }
             .navigationTitle("Day Planner")
@@ -59,9 +59,9 @@ struct MasterView: View {
                         Image(systemName: "plus")
                     }.disabled(isEditMode)
                     )
-                    .onAppear {
-                        tasksByDay.sortDays()
-                    }
+//                    .onAppear {
+//                        tasksByDay.sortDays()
+//                    }
             
             }
     }

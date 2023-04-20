@@ -112,6 +112,8 @@ Added app icon to assets, used single image under iOS as one size should fit all
 
 May need to disable auto sorting functions to demonstrate list reordering.
 
+Tests weren't executing properly due to misunderstanding the test file structure. Corrected the file structure so that individual tests could be performed. Found several issues with some functions and initializers and was able to correct them and pass all implemented tests.
+
 
 
 

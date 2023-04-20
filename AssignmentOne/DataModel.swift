@@ -23,7 +23,7 @@ class Task: Identifiable, ObservableObject {
     }
 }
 
-class TaskStore: ObservableObject, Identifiable {
+public class TaskStore: ObservableObject, Identifiable {
     @Published var tasks: [Task]
     
     init (tasks: [Task] = []){
@@ -100,7 +100,7 @@ class TaskStore: ObservableObject, Identifiable {
     ///
     
     // A function that sorts the tasks based on their chronological time
-    func sortTasksByTime() {
+    public func sortTasksByTime() {
         
         // Sort the tasks array by comparing two tasks based on their scheduled time
         tasks.sort(by: { task1, task2 in
@@ -131,19 +131,18 @@ class Day: ObservableObject, Identifiable {
         }
 }
     
-class DayList: ObservableObject, Identifiable {
-    let id = UUID()
+public class DayList: ObservableObject, Identifiable {
+    public let id = UUID()
     @Published var days: [Day]
     
-    init(days: [Day] = [Day()]){
+    init(days: [Day] = []){
         self.days = days
-        sortDays()
     }
     
     let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     
-    /// This function provides chronological ordering functionality to the Day objects contained within a DayList array. it is called when a new day object is generated or appended to the DayList
+    /// This function provides chronological ordering functionality to the Day objects contained within a DayList array. it is called when a new day object is appended to the DayList
     /// - Parameters:
     /// none
     /// - Returns:
@@ -162,7 +161,7 @@ class DayList: ObservableObject, Identifiable {
         
     
     // A function that sorts the 'days' array based on the order of the days of the week
-    func sortDays() {
+    public func sortDays() {
         
         // Sort days array using a closure that takes two 'Day' objects and returns a boolean
         days = days.sorted { (day1, day2) -> Bool in
@@ -187,15 +186,9 @@ class DayList: ObservableObject, Identifiable {
     ///Example:
     ///'''
     ///var exampleDayList = DayList()
-    ///let exampleEntry = "Monday"
-    ///exampleDayList.appendDay(Monday)
+    ///exampleDayList.appendDay("Monday")
     ///print(exampleDayList) // Output: [Day: "Monday", TaskStore: []]
-    
-    
-    
-    
-    
-    
+    ///'''
     
     // A function that creates a new Day object using a given name and an empty 'TaskStore' property, and appends it to the 'days' array
     func appendDay(_ name: String) {
@@ -219,7 +212,7 @@ var tasksByDay = DayList(days: [])
 
 
 
-// test data
+// test data in scope
 let Monday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),
 ]
 
@@ -233,5 +226,5 @@ let Thursday: [Task] = [Task(time: "7:30 AM", task: "Breakfast"),
                         Task(),
                     ]
 
-// var testTaskStore = TaskStore(tasks: [Task(time: "10:00 AM", task: "Study")])
+let daysofWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 

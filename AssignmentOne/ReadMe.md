@@ -118,6 +118,12 @@ Tests weren't executing properly due to misunderstanding the test file structure
 
 Disabled auto sorting after appending to the DayList and TaskStore objects to demonstrate manually sorting through the app better.
 
+Added dark theme styling to the app using .environment modifiers in parent views
+
+Trying to get my head around the correct placement of .environment modifiers for edit mode such that the lists retain full built in editbutton functionality for implementing reordering. Managed to get it working where is wasn't in milestone 2
+
+Used a .preferredColorScheme modifier to successfully change the color of the presentation sheet in detailview
+
 
 
 

@@ -17,7 +17,6 @@ struct DayNameView: View {
                 if isEditMode {
                         TextField(dayName, text: $dayName)
                             .modifier(DayNameModifier())
-                            .background(Color.white)
                             .border(Color.blue, width: 1)
                             .padding()
                         Image(systemName: "pencil")

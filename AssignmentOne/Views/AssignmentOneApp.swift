@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct AssignmentOneApp: App {
+    
+//    @EnvironmentObject var myModel: DataModel
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+            .environment(\.colorScheme, .dark)
         }
     }
 }

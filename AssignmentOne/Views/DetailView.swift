@@ -52,6 +52,10 @@ struct DetailView: View {
                     // Delete task at specified index
                     tasks.tasks.remove(atOffsets: indexSet)
                 }
+                .onMove {source, destination in
+                    tasks.tasks.move(fromOffsets: source, toOffset: destination)
+                }
+                
                 
                 // Add task button (only visible in edit mode)
                 if editMode.isEditing {
@@ -65,9 +69,9 @@ struct DetailView: View {
                         Text("Add task")
                             .foregroundColor(.blue)
                     }
-                    // Present user with a sheet for task properties
+                    
                     .sheet(isPresented: $isAddingTask) {
-                        // AddTaskView for adding tasks and styling
+                        // AddTaskView for adding tasks
                         AddTaskView(tasks: tasks)
                             .preferredColorScheme(.dark)
                     }
@@ -79,7 +83,7 @@ struct DetailView: View {
             .navigationBarItems(trailing: HStack {
                 if editMode.isEditing {
                     if hasReset {
-                        // Undo reset button loading the array with stored previous values
+                        // Undo reset button
                         Button(action: {
                             hasReset.toggle()
                             for index in tasks.tasks.indices {
@@ -91,7 +95,7 @@ struct DetailView: View {
                                 .foregroundColor(.red)
                         }
                     } else {
-                        // Reset button saves previous state into an array
+                        // Reset button
                         Button(action: {
                             hasReset.toggle()
                             savedCheckState = tasks.tasks.map { $0.isChecked }
@@ -105,6 +109,8 @@ struct DetailView: View {
                         }
                     }
                 }
+                
+                // Edit button
                 EditButton()
                     .environment(\.editMode, $editMode)
             })

@@ -210,6 +210,26 @@ public class DayList: ObservableObject, Identifiable {
 
 var tasksByDay = DayList(days: [])
 
+// Need DataModel, likely environmentalobject for data persistence
+
+// Need enum to handle error cases
+
+// Need to enable sorting of lists
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // test data in scope

@@ -124,6 +124,8 @@ Trying to get my head around the correct placement of .environment modifiers for
 
 Used a .preferredColorScheme modifier to successfully change the color of the presentation sheet in detailview
 
+Implemented list reordering using .move method during editmode for both detail and masterview
 
+Implemented an autosort button to the navbar of the masterview disabled when the list is empty
 
 

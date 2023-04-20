@@ -10,7 +10,6 @@ import SwiftUI
 struct ListRowView: View {
     
    var day: String
-//    @Binding var isEditMode: Bool
 
     var body: some View {
         Text(day)
